@@ -37,7 +37,7 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""攻击"",
+                    ""name"": ""跳跃"",
                     ""type"": ""Button"",
                     ""id"": ""7bbb1052-ac0f-48ff-b2a6-e932d07b5061"",
                     ""expectedControlType"": ""Button"",
@@ -118,7 +118,7 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""攻击"",
+                    ""action"": ""跳跃"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -147,7 +147,7 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
         // GamePlay
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
         m_GamePlay_移动 = m_GamePlay.FindAction("移动", throwIfNotFound: true);
-        m_GamePlay_攻击 = m_GamePlay.FindAction("攻击", throwIfNotFound: true);
+        m_GamePlay_跳跃 = m_GamePlay.FindAction("跳跃", throwIfNotFound: true);
         m_GamePlay_鼠标 = m_GamePlay.FindAction("鼠标", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -211,14 +211,14 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_GamePlay;
     private IGamePlayActions m_GamePlayActionsCallbackInterface;
     private readonly InputAction m_GamePlay_移动;
-    private readonly InputAction m_GamePlay_攻击;
+    private readonly InputAction m_GamePlay_跳跃;
     private readonly InputAction m_GamePlay_鼠标;
     public struct GamePlayActions
     {
         private @MyInput m_Wrapper;
         public GamePlayActions(@MyInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @移动 => m_Wrapper.m_GamePlay_移动;
-        public InputAction @攻击 => m_Wrapper.m_GamePlay_攻击;
+        public InputAction @跳跃 => m_Wrapper.m_GamePlay_跳跃;
         public InputAction @鼠标 => m_Wrapper.m_GamePlay_鼠标;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
@@ -232,9 +232,9 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
                 @移动.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.On移动;
                 @移动.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.On移动;
                 @移动.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.On移动;
-                @攻击.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.On攻击;
-                @攻击.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.On攻击;
-                @攻击.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.On攻击;
+                @跳跃.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.On跳跃;
+                @跳跃.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.On跳跃;
+                @跳跃.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.On跳跃;
                 @鼠标.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.On鼠标;
                 @鼠标.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.On鼠标;
                 @鼠标.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.On鼠标;
@@ -245,9 +245,9 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
                 @移动.started += instance.On移动;
                 @移动.performed += instance.On移动;
                 @移动.canceled += instance.On移动;
-                @攻击.started += instance.On攻击;
-                @攻击.performed += instance.On攻击;
-                @攻击.canceled += instance.On攻击;
+                @跳跃.started += instance.On跳跃;
+                @跳跃.performed += instance.On跳跃;
+                @跳跃.canceled += instance.On跳跃;
                 @鼠标.started += instance.On鼠标;
                 @鼠标.performed += instance.On鼠标;
                 @鼠标.canceled += instance.On鼠标;
@@ -283,7 +283,7 @@ public partial class @MyInput : IInputActionCollection2, IDisposable
     public interface IGamePlayActions
     {
         void On移动(InputAction.CallbackContext context);
-        void On攻击(InputAction.CallbackContext context);
+        void On跳跃(InputAction.CallbackContext context);
         void On鼠标(InputAction.CallbackContext context);
     }
     public interface IUIActions

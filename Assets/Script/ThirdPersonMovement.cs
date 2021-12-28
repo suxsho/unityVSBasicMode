@@ -7,10 +7,12 @@ using Unity.VisualScripting;
 public class ThirdPersonMovement : MonoBehaviour
 {
     private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float gravityValue = -9.81f;
     private Transform camaraMainTransform;
+
+    Vector3 velocity;
+    [HideInInspector]
+    public bool isGrounded;
+    
 
     public void Start()
     {
@@ -34,18 +36,26 @@ public class ThirdPersonMovement : MonoBehaviour
             controller.Move(moveDir.normalized * Speed * Time.deltaTime);
         }
     }
-    // TODO: 跳跃功能封装
-    //重力
-    public void GravitySystem()
+    //跳跃
+    public void characterJump(float jumpHeight = 3,float gravity = -9.81f)
     {
-        //当角色碰到地面的时候无重力
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if(isGrounded)
         {
-            playerVelocity.y = 0f;
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+
+    }
+    //重力
+    public void GravitySystem(Transform groundCheck,LayerMask groundMask,float gravity = -9.81f,float groundDistance = 0.4f)
+    {
+         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+         if (isGrounded && velocity.y < 0)
+         {
+            velocity.y = -2f;
+         }
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+
     }
 
 }

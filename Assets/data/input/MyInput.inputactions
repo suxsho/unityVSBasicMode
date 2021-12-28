@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "攻击",
+                    "name": "跳跃",
                     "type": "Button",
                     "id": "7bbb1052-ac0f-48ff-b2a6-e932d07b5061",
                     "expectedControlType": "Button",
@@ -96,7 +96,7 @@
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "攻击",
+                    "action": "跳跃",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
