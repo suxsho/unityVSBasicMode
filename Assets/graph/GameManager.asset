@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: GameManager
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"\u6e38\u620f\u7ba1\u7406\u5668","summary":"\u7ba1\u7406\u6e38\u620f\u6d41\u7a0b","pan":{"x":-17.66667,"y":-15.5},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":-144.0},"guid":"2fcc7c86-c352-47d0-b7c4-0a432f8a1b53","$version":"A","$type":"Unity.VisualScripting.Start"},{"coroutine":false,"defaultValues":{},"position":{"x":-239.0,"y":-7.0},"guid":"2f67f83e-10c8-4bd4-a6b8-08bf4ab8244a","$version":"A","$type":"Unity.VisualScripting.Update","$id":"11"},{"chainable":false,"member":{"name":"TriggerUnityEvent","parameterTypes":["System.String"],"targetType":"Unity.VisualScripting.ScriptMachine","targetTypeName":"Unity.VisualScripting.ScriptMachine","$version":"A"},"defaultValues":{"target":{"$content":0,"$type":"UnityEngine.Object"},"%name":{"$content":"Up_Player","$type":"System.String"}},"position":{"x":4.0,"y":-8.0},"guid":"2674f61c-fc66-4fde-b5e9-cc280036ad4a","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"13"},{"sourceUnit":{"$ref":"11"},"sourceKey":"trigger","destinationUnit":{"$ref":"13"},"destinationKey":"enter","guid":"a9fc5617-898b-47ad-9ce0-ad98f834bd2b","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 0}
