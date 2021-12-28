@@ -1,0 +1,2 @@
+# unityVSBasicMode
+使用UNITY2021.2创建的可利用与VisualScripting的基础功能
